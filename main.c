@@ -20,8 +20,6 @@ int main(int argc, char** argv) {
   }
   yyparse();
   if (error) return 0;
-  ast_sem();
-  if (error) return 0;
   ast_ir();
   ir_hole_opt();
   if (argc > 4) ir_dump(argv[4]);
@@ -30,9 +28,7 @@ int main(int argc, char** argv) {
   while (ir_constant() | ir_livevar(0) | ir_arthprog(0) | ir_avexpr(0)) WAIT();
   while (ir_constant() | ir_arthprog(1) | ir_livevar(1)) WAIT();
   while (ir_constant() | ir_avexpr(1) | ir_livevar(1)) WAIT();
-  if (argc > 3) ir_dump(argv[3]);
-  ir_mips();
-  return mips_dump(argv[2]);
+  return ir_dump(argv[2]);
 }
 
 void set_error() {

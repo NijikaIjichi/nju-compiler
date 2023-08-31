@@ -1,7 +1,11 @@
 #ifndef __TYPE_H__
 #define __TYPE_H__
 
+#include <stdint.h>
+
 char *strdup(const char *);
+uint64_t strhash(const char *s);
+int strsame(const char *s1, const char *s2);
 
 typedef enum typeid {E_type_int, E_type_float, E_type_array, E_type_struct, E_type_func, E_type_ref, E_type_error} typeid_t;
 typedef enum relop {GT, LE, GE, LT, EQ, NEQ} relop_t;

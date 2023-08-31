@@ -91,6 +91,8 @@ int is_name_dup_deep(frame_t *frame, const char *name) {
   return lookup_struct(name) || lookup_var_deep(frame, name);
 }
 
+/*
+
 typedef struct ast_semantics {
   void **table;
   type_t *type;
@@ -457,3 +459,5 @@ void ast_sem() {
   ast_semantics_t ast_semer = {ast_semantics_table, &ERROR, &global_frame, 0};
   ast_visit(&ast_semer, ast_get_root());
 }
+
+*/

@@ -52,7 +52,7 @@ ir_program_t *get_ir_program() {
   return program;
 }
 
-static uint64_t strhash(const char *s) {
+uint64_t strhash(const char *s) {
   uint64_t hash = 0;
   for (; *s; ++s) {
     hash = hash * 31 + (uint64_t)(*s);
@@ -60,7 +60,7 @@ static uint64_t strhash(const char *s) {
   return hash;
 }
 
-static int strsame(const char *s1, const char *s2) {
+int strsame(const char *s1, const char *s2) {
   return !strcmp(s1, s2);
 }
 
